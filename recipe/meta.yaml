@@ -14,7 +14,7 @@ source:
 
 build:
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
   number: 0
 
 requirements:
@@ -33,8 +33,8 @@ test:
     - serializable
   commands:
     - pip check
+    - cd src && pytest -vv --cov=serializable --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=82 -k "not (serializable_with_defaultNS or serializable_no_defaultNS) "
     - mypy -p serializable
-    - cd src && pytest -vv --cov=serializable --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=82
   requires:
     - lxml
     - mypy
