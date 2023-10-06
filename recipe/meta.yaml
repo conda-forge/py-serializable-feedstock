@@ -1,4 +1,4 @@
-{% set version = "0.13.0" %}
+{% set version = "0.14.0" %}
 
 package:
   name: py-serializable
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/p/py-serializable/py-serializable-{{ version }}.tar.gz
-    sha256: 8238f9882573a291856b9c0234c9f98b405a7743b32a612955027aa268c2e152
+    sha256: f96d4c6372bb455eca6e95329074081ba9842a71d16806060b6bb6b750a94239
   - folder: src
     url: https://github.com/madpah/serializable/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: b6cc5e42b978b59de76cc5c3c1600786fce99c19302f594c0f500d8d86e9c6c0
+    sha256: be9daf45c832d910e8bc542f8845500eaad22e5e5edf6487bff14e7de5775b7b
 
 build:
   noarch: python
