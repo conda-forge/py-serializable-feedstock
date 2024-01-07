@@ -8,6 +8,8 @@ source:
   - folder: dist
     url: https://pypi.io/packages/source/p/py-serializable/py-serializable-{{ version }}.tar.gz
     sha256: db7d3c5f17031b57b2a8b10b4c0fe529a56e14c7b383739eae67742037bda1f3
+    patches:
+      - 0000-fix-log-placeholder.patch
   - folder: src
     url: https://github.com/madpah/serializable/archive/refs/tags/v{{ version }}.tar.gz
     sha256: 2c5d583c884c9ea5b4d347bf5332cdcd7fa432604c712a89c7231dc4039b67f6
