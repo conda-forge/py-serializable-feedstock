@@ -5,16 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.io/packages/source/p/py-serializable/py_serializable-{{ version }}.tar.gz
-    sha256: 158a98a7ffda067d21f844594ce571d97f36172ba538aee1a93196f8b5888bd8
-  - folder: src
-    url: https://github.com/madpah/serializable/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 6d3044a1415fcba93841f262180644535acbfc0b7898af9023d006d79a7baec0
+  url: https://pypi.io/packages/source/p/py-serializable/py_serializable-{{ version }}.tar.gz
+  sha256: 158a98a7ffda067d21f844594ce571d97f36172ba538aee1a93196f8b5888bd8
 
 build:
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
@@ -28,13 +24,13 @@ requirements:
 
 test:
   source_files:
-    - src/tests
+    - tests
   imports:
     - serializable
   commands:
     - pip check
     - mypy -p serializable
-    - coverage run --source=serializable --branch -m pytest src/tests -vv --color=yes --tb=long
+    - coverage run --source=serializable --branch -m pytest -vv --color=yes --tb=long
     - coverage report --show-missing --skip-covered --fail-under=83
   requires:
     - coverage
@@ -48,7 +44,7 @@ about:
   home: https://github.com/madpah/serializable
   summary: Library for serializing and deserializing Python Objects to and from JSON and XML.
   license: Apache-2.0
-  license_file: dist/LICENSE
+  license_file: LICENSE
   doc_url: https://py-serializable.readthedocs.io
 
 extra:
