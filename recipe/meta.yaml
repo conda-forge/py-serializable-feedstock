@@ -1,4 +1,4 @@
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 
 package:
   name: py-serializable
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/py-serializable/py_serializable-{{ version }}.tar.gz
-  sha256: 3311ab39063b131caca0fb75e2038153682e55576c67f24a2de72d402dccb6e0
+  sha256: f268db3afc42c8786da6dc64a8a36e33a82cf65cdcff22d1188b0927f6d4cfa9
 
 build:
   noarch: python
