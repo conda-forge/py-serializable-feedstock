@@ -34,7 +34,7 @@ tests:
       imports: py_serializable
   - files:
       source:
-        - tests
+        - tests/
     requirements:
       run:
         - coverage
