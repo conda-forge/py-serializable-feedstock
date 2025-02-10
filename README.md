@@ -9,7 +9,7 @@ Package license: Apache-2.0
 
 Summary: Library for serializing and deserializing Python Objects to and from JSON and XML.
 
-Documentation: https://py-serializable.readthedocs.io
+Documentation: https://py-serializable.readthedocs.io/
 
 Current build status
 ====================
