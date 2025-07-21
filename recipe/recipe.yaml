@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: 2.0.0
+  version: "2.1.0"
 
 package:
   name: py-serializable
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/py-serializable/py_serializable-${{ version }}.tar.gz
-  sha256: e9e6491dd7d29c31daf1050232b57f9657f9e8a43b867cca1ff204752cf420a5
+  sha256: 9d5db56154a867a9b897c0163b33a793c804c80cee984116d02d49e4578fc103
 
 build:
   number: 0
