@@ -2,21 +2,22 @@
 schema_version: 1
 
 context:
-  version: "2.1.0"
+  version: "2.2.0"
+  python_check_max: "3.15"
 
 package:
   name: py-serializable
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/p/py-serializable/py_serializable-${{ version }}.tar.gz
-  sha256: 9d5db56154a867a9b897c0163b33a793c804c80cee984116d02d49e4578fc103
+  url: https://files.pythonhosted.org/packages/source/p/py-serializable/py_serializable-${{ version }}.tar.gz
+  sha256: 8e4fa02e8de819c0488ccdb69c2d3109274adcf224c02357fd8729cb12727aab
 
 build:
   number: 0
   noarch: python
   script:
-    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
 
 requirements:
   host:
@@ -28,13 +29,22 @@ requirements:
     - python >=${{ python_min }}
 
 tests:
+  - package_contents:
+      strict: true
+      files:
+        - etc/conda/test-files/py-serializable/**
+      site_packages:
+        - py_serializable/**
+        - py_serializable-${{ version }}.dist-info/**
   - python:
       pip_check: true
-      python_version: ${{ python_min }}.*
       imports: py_serializable
+      python_version:
+        - ${{ python_min }}.*
+        - ${{ python_check_max }}.*
   - files:
       source:
-        - tests/
+        - tests/**
     requirements:
       run:
         - coverage
